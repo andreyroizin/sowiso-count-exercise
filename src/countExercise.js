@@ -1,6 +1,7 @@
+import React from "react";
+import NumericInput from 'react-numeric-input';
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
-import React from "react";
 
 // const useStyles = makeStyles((theme) => ({
 //     welcome_text: {
@@ -11,16 +12,29 @@ import React from "react";
 class CountExercise extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100)};
+        this.state = {firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0};
     }
 
     render() {
-        return (
-        <Typography variant="h3" align="center">
+        let userAnswerDraft = 0;
+        return <>
+            <div align="center">
+        <Typography variant="h3" >
             Welcome to SOWISO counting exercise<br/>In this exercise you have to count the sum of two numbers
-            <br/>{this.state.firstNumber} + {this.state.secondNumber}
+            <br/>{this.state.firstNumber} + {this.state.secondNumber}  = <br/>
         </Typography>
-        );
+                <form>
+                    <label>Enter your answer:
+                        <input
+                            type="number"
+                            // value={userAnswer}
+                            onChange={(e) => this.setState({userAnswer : e.target.value})}
+                        />
+                    </label>
+                    <input type="submit" value="Submit answer"/>
+                </form>
+            </div>
+        </>
     }
 }
 
