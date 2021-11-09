@@ -49,22 +49,10 @@ class CountExercise extends React.Component {
 
             }
         };
-        const handleTryAgain = () => {
-            console.log("hh")
-            this.setState({correctAnswer : false})
-            // console.log("summ "+ (this.state.firstNumber + this.state.secondNumber))
-            // console.log("ua "+ this.state.userAnswer)
-            // if ((this.state.firstNumber + this.state.secondNumber) == this.state.userAnswer){
-            //     // alert("Your answer is correct")
-            //     this.setState({correctAnswer : true})
-            // }else {
-            //     // this.render(<Alert severity="error">Your answer is incorrect, try again</Alert>)
-            //     alert("Your answer is correct")
-
-            // }
+        const resetState = () => {
+            this.setState({firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0, correctAnswer : false})
         };
-        console.log("correctAnswer ", correctAnswer)
-        if (!correctAnswer){
+        if (!this.state.correctAnswer){
             return <>
                 <div align="center">
                     <Typography variant="h3" >
@@ -85,12 +73,11 @@ class CountExercise extends React.Component {
         }
         return <>
             <div align="center">
-                {/*<p>Your answer is correct</p>*/}
-                <Typography variant="h5" component="div">
+                <Typography variant="h3" component="div">
                     Congratulations!<br/>
                     Your answer is correct
                 </Typography>
-                <Button onClick={() => this.setState({firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0, correctAnswer : false})}>Try again</Button>
+                <Button onClick={() => resetState()}>Try again</Button>
             </div>
             </>
 
