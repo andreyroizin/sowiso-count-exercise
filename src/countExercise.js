@@ -1,52 +1,22 @@
 import React from "react";
-import NumericInput from 'react-numeric-input';
 import Typography from "@material-ui/core/Typography";
-import {makeStyles} from "@material-ui/core/styles";
-import Alert from "@material-ui/lab/Alert";
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-
-// const useStyles = makeStyles((theme) => ({
-//     welcome_text: {
-//         justifyContent: 'center'
-//     }
-// }));
-
-const card = (
-    <React.Fragment>
-        <CardContent>
-
-        </CardContent>
-        <CardActions align="center">
-
-        </CardActions>
-    </React.Fragment>
-);
-
 class CountExercise extends React.Component {
     constructor(props) {
         super(props);
         this.state = {firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0, correctAnswer : false};
-        this.baseState = this.state
     }
 
     render() {
-
-        const correctAnswer = this.state.correctAnswer;
-
         const handleUserAnswerSubmit = (event) => {
             event.preventDefault();
             console.log("summ "+ (this.state.firstNumber + this.state.secondNumber))
             console.log("ua "+ this.state.userAnswer)
-            if ((this.state.firstNumber + this.state.secondNumber) == this.state.userAnswer){
-                // alert("Your answer is correct")
+
+            if ((this.state.firstNumber + this.state.secondNumber) === parseInt(this.state.userAnswer)){
                 this.setState({correctAnswer : true})
             }else {
-                // this.render(<Alert severity="error">Your answer is incorrect, try again</Alert>)
-                alert("Your answer is incorrect")
-
+                alert("Your answer is incorrect, try again")
             }
         };
         const resetState = () => {
@@ -83,15 +53,6 @@ class CountExercise extends React.Component {
 
     }
 }
-
-class CongratsComponent extends React.Component {
-    render() {
-        return <>
-
-            </>
-    }
-}
-
 function generateRandomNumber(max) {
     return Math.floor(Math.random() * max);
 }
