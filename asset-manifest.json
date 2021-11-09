@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/sowiso-count-exercise/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/sowiso-count-exercise/static/js/main.080fcaa2.chunk.js",
+    "main.js.map": "/sowiso-count-exercise/static/js/main.080fcaa2.chunk.js.map",
+    "runtime-main.js": "/sowiso-count-exercise/static/js/runtime-main.0bb23f43.js",
+    "runtime-main.js.map": "/sowiso-count-exercise/static/js/runtime-main.0bb23f43.js.map",
+    "static/js/2.5e75d34e.chunk.js": "/sowiso-count-exercise/static/js/2.5e75d34e.chunk.js",
+    "static/js/2.5e75d34e.chunk.js.map": "/sowiso-count-exercise/static/js/2.5e75d34e.chunk.js.map",
+    "static/js/3.716306ac.chunk.js": "/sowiso-count-exercise/static/js/3.716306ac.chunk.js",
+    "static/js/3.716306ac.chunk.js.map": "/sowiso-count-exercise/static/js/3.716306ac.chunk.js.map",
+    "index.html": "/sowiso-count-exercise/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/sowiso-count-exercise/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.5e75d34e.chunk.js.LICENSE.txt": "/sowiso-count-exercise/static/js/2.5e75d34e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bb23f43.js",
+    "static/js/2.5e75d34e.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.080fcaa2.chunk.js"
+  ]
+}
