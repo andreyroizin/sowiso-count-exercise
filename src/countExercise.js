@@ -24,18 +24,17 @@ class CountExercise extends React.Component {
         };
         if (!this.state.correctAnswer){
             return <>
-                <div align="center">
+                <div align="center" >
                     <Typography variant="h3" >
-                        Welcome to SOWISO counting exercise<br/>In this exercise you have to count the sum of two numbers
-                        <br/>{this.state.firstNumber} + {this.state.secondNumber}  = <br/>
+                        Welcome to SOWISO counting exercise<br/>In this exercise you have to calculate the sum of two numbers
+                        <br/>{this.state.firstNumber} + {this.state.secondNumber}  =
                     </Typography>
                     <form onSubmit={handleUserAnswerSubmit}>
-                        <label>Enter your answer:
                             <input
+                                placeholder={"Enter your answer"}
                                 type="number"
                                 onChange={(e) => this.setState({userAnswer : e.target.value})}
                             />
-                        </label>
                         <input type="submit" value="Submit answer"/>
                     </form>
                 </div>
@@ -47,7 +46,7 @@ class CountExercise extends React.Component {
                     Congratulations!<br/>
                     Your answer is correct
                 </Typography>
-                <Button onClick={() => resetState()}>Try again</Button>
+                <Button variant="contained" color="primary" onClick={() => resetState()}>Try again</Button>
             </div>
             </>
 
