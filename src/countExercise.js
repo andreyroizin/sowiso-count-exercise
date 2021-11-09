@@ -2,6 +2,11 @@ import React from "react";
 import NumericInput from 'react-numeric-input';
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
+import Alert from "@material-ui/lab/Alert";
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 
 // const useStyles = makeStyles((theme) => ({
 //     welcome_text: {
@@ -9,32 +14,93 @@ import {makeStyles} from "@material-ui/core/styles";
 //     }
 // }));
 
+const card = (
+    <React.Fragment>
+        <CardContent>
+
+        </CardContent>
+        <CardActions align="center">
+
+        </CardActions>
+    </React.Fragment>
+);
+
 class CountExercise extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0};
+        this.state = {firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0, correctAnswer : false};
     }
 
     render() {
-        let userAnswerDraft = 0;
+
+        const correctAnswer = this.state.correctAnswer;
+
+        const handleUserAnswerSubmit = (event) => {
+            event.preventDefault();
+            console.log("summ "+ (this.state.firstNumber + this.state.secondNumber))
+            console.log("ua "+ this.state.userAnswer)
+            if ((this.state.firstNumber + this.state.secondNumber) == this.state.userAnswer){
+                // alert("Your answer is correct")
+                this.setState({correctAnswer : true})
+            }else {
+                // this.render(<Alert severity="error">Your answer is incorrect, try again</Alert>)
+                alert("Your answer is incorrect")
+
+            }
+        };
+        const handleTryAgain = () => {
+            console.log("hh")
+            this.setState({correctAnswer : false})
+            // console.log("summ "+ (this.state.firstNumber + this.state.secondNumber))
+            // console.log("ua "+ this.state.userAnswer)
+            // if ((this.state.firstNumber + this.state.secondNumber) == this.state.userAnswer){
+            //     // alert("Your answer is correct")
+            //     this.setState({correctAnswer : true})
+            // }else {
+            //     // this.render(<Alert severity="error">Your answer is incorrect, try again</Alert>)
+            //     alert("Your answer is correct")
+
+            // }
+        };
+        console.log("correctAnswer ", correctAnswer)
+        if (!correctAnswer){
+            return <>
+                <div align="center">
+                    <Typography variant="h3" >
+                        Welcome to SOWISO counting exercise<br/>In this exercise you have to count the sum of two numbers
+                        <br/>{this.state.firstNumber} + {this.state.secondNumber}  = <br/>
+                    </Typography>
+                    <form onSubmit={handleUserAnswerSubmit}>
+                        <label>Enter your answer:
+                            <input
+                                type="number"
+                                onChange={(e) => this.setState({userAnswer : e.target.value})}
+                            />
+                        </label>
+                        <input type="submit" value="Submit answer"/>
+                    </form>
+                </div>
+            </>
+        }
         return <>
             <div align="center">
-        <Typography variant="h3" >
-            Welcome to SOWISO counting exercise<br/>In this exercise you have to count the sum of two numbers
-            <br/>{this.state.firstNumber} + {this.state.secondNumber}  = <br/>
-        </Typography>
-                <form>
-                    <label>Enter your answer:
-                        <input
-                            type="number"
-                            // value={userAnswer}
-                            onChange={(e) => this.setState({userAnswer : e.target.value})}
-                        />
-                    </label>
-                    <input type="submit" value="Submit answer"/>
-                </form>
+                {/*<p>Your answer is correct</p>*/}
+                <Typography variant="h5" component="div">
+                    Congratulations!<br/>
+                    Your answer is correct
+                </Typography>
+                <Button onClick={this.setState({correctAnswer : false})}>Try again</Button>
             </div>
-        </>
+            </>
+
+    }
+}
+
+class CongratsComponent extends React.Component {
+    render() {
+        return <>
+
+            </>
     }
 }
 
