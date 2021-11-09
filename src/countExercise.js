@@ -29,6 +29,7 @@ class CountExercise extends React.Component {
     constructor(props) {
         super(props);
         this.state = {firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0, correctAnswer : false};
+        this.baseState = this.state
     }
 
     render() {
@@ -89,7 +90,7 @@ class CountExercise extends React.Component {
                     Congratulations!<br/>
                     Your answer is correct
                 </Typography>
-                <Button onClick={this.setState({correctAnswer : false})}>Try again</Button>
+                <Button onClick={() => this.setState({firstNumber: generateRandomNumber(100), secondNumber: generateRandomNumber(100), userAnswer:0, correctAnswer : false})}>Try again</Button>
             </div>
             </>
 
